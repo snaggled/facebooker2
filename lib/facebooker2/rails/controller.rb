@@ -192,12 +192,16 @@ module Facebooker2
         end
         
         #My browser doesn't seem to save the cookie if I set expires
-        #cookies[fb_cookie_name] = { :value=>value }#, :expires=>expires}
+        cookies[fb_cookie_name] = { :value=>value }#, :expires=>expires}
         
         #https://github.com/mmangino/facebooker2/pull/44#issuecomment-1292162
-        cookies[fb_cookie_name] = { :value=>value, :domain => request.domain }#, :expires=>expires}\
+        #cookies[fb_cookie_name] = { :value=>value, :domain => request.domain }#, :expires=>expires}\
       end
       
+      #def delete_fb_cookie!
+      #  site_domain = fb_cookie_hash["base_domain"] if fb_cookie_hash.has_key?("base_domain")
+      #  site_domain ? cookies.delete(fb_cookie_name, :domain => ".#{site_domain}") : cookies.delete(fb_cookie_name)
+      #end
     
       # For canvas apps, You need to set the p3p header in order to get IE 6/7 to accept the third-party cookie
       # For details http://www.softwareprojects.com/resources/programming/t-how-to-get-internet-explorer-to-use-cookies-inside-1612.html
