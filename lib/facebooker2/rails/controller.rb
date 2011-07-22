@@ -84,7 +84,7 @@ module Facebooker2
       end
       
       def fb_cookie_name
-        return "snugg_fbs_#{Facebooker2.app_id}"
+        return "fbs_#{Facebooker2.app_id}"
       end
       
       # check if the expected signature matches the one from facebook
@@ -194,7 +194,6 @@ module Facebooker2
         #My browser doesn't seem to save the cookie if I set expires
         #cookies[fb_cookie_name] = { :value=>value }#, :expires=>expires}
         
-        p "Setting cookie for domain:#{request.domain}"
         #https://github.com/mmangino/facebooker2/pull/44#issuecomment-1292162
         cookies[fb_cookie_name] = { :value=>value, :domain => request.domain }#, :expires=>expires}\
       end
